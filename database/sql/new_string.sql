@@ -1,0 +1,2 @@
+insert into string(Date_start, Date_end, Cost, Billboard, `Order`) values
+('${start}', '${end}', (select Price from billboard where id_billboard = ${billboard_id})*datediff('${end}', '${start}'), ${billboard_id}, ${order_id});

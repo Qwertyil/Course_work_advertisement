@@ -1,0 +1,26 @@
+{
+    "admin": {
+        "authorization": ["*"],
+        "query": ["*"],
+        "report": ["-"],
+        "rent": ["-"]
+    },
+    "manager": {
+        "authorization": ["*"],
+        "query": ["-"],
+        "report": ["create"],
+        "rent": ["-"]
+    },
+    "analyst": {
+        "authorization": ["*"],
+        "query": ["-"],
+        "report": ["view"],
+        "rent": ["-"]
+    },
+    "external": {
+        "authorization": ["*"],
+        "query": ["-"],
+        "report": ["-"],
+        "rent": ["*"]
+    }
+}

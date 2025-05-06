@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты из БД</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <div class="container">
+        <h3>{{ description }}</h3>
+        <div>
+            <table border="0" cellpadding="10">
+                <thead>
+                    <tr>
+                        {% for column_name in column_names %}
+                            <th align="center">{{column_name}}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                        <tr>
+                            {% for value in row %}
+                                <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="buttons">
+            <button onclick="history.back()">Назад</button>
+        </div>
+        <div class="button-container">
+            <button onclick="location.href='/';">На главную</button>
+        </div>
+    </div>
+</body>
+</html>

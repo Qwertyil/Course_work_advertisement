@@ -1,0 +1,288 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center; /* Center text within the container */
+  min-width: 50%;
+  max-width: 80%;
+}
+
+h1 {
+  color: #333; /* Black heading text */
+  margin-bottom: 30px;
+}
+
+.user-info {
+  margin-bottom: 30px;
+  color: #333; /* Black user info text */
+}
+
+a, button {
+  display: block;
+  width: 30%; /* Buttons are now 70% of container width */
+  padding: 12px 20px; /* Slightly reduced padding */
+  margin: 10px auto; /* Center buttons using auto margins */
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+a:hover, button:hover {
+  background-color: #0069d9;
+}
+
+input[type="number"], input[type="date"],
+input[type="text"], input[type="password"] {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-indent: 15px;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus {
+  box-shadow: 0 0 5px rgba(0, 255, 50, 0.2); /* Blue glow on focus */
+  outline: none; /* Remove default outline */
+}
+
+select {
+    background-color: white;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 83%;
+    text-indent: 3px;
+    margin-bottom: 20px;
+}
+
+
+.query-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.report-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+    gap: 20px;
+}
+
+.query-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer; /*  Устанавливаем курсор указателя  */
+}
+
+.query-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.query-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.query-item:hover::before {
+    opacity: 1;
+}
+
+.query-item-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.query-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.query-item p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+
+#query-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /*  Убедитесь, что ссылка находится поверх других элементов */
+    opacity: 0;  /*  Скрываем ссылку по умолчанию */
+}
+
+.query-item:hover .query-link {
+    opacity: 1;  /*  Делаем ссылку видимой при наведении */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Important for this to work correctly */
+    font-size: 16px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border:none; /* Убираем внешнюю рамку таблицы */
+}
+
+table td {
+    border-right: 2px solid #4CAF50; /* Only right border */
+    padding: 20px;
+    text-align: left;
+}
+
+table th {
+    border-right: 2px solid #f5f5f5; /* Only right border */
+    padding: 20px;
+    text-align: left;
+}
+
+/*Optional: Style for the last column. It doesn't have a right border.*/
+td:last-child, th:last-child {
+    border :none;
+}
+
+
+table th {
+    background-color: #4CAF50;
+    font-weight: bold;
+
+}
+
+table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.main {
+  margin: 20px auto;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.goods {
+  border: 1px solid #ced4da;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  align: left;
+}
+
+.goods .item {
+  font-weight: bold;
+}
+
+.goods .price {
+  color: #343a40;
+  align: left;
+}
+
+.goods form {
+  gap: 10px;
+}
+
+/* --- Style for all buttons and links --- */
+.goods button,
+.goods input[type="submit"] {
+  padding: 8px 15px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: white;
+}
+
+/* --- Button hover effect --- */
+.goods button:hover,
+.goods input[type="submit"]:hover {
+  background-color: #0069d9;
+}
+
+/* --- Specific styling for + and - buttons --- */
+.goods button[type="submit"] {
+ min-width: 48%;  /* минимальная ширина кнопки */
+ height: 30px;
+ line-height: 20px;
+ text-align: center;
+ display: inline-flex; /* Используем inline-flex */
+ justify-content: center;
+ align-items: center;
+ border-radius: 10%;
+ text-decoration: none;
+ color: white;
+}
+
+.minimenubox {
+  text-align: center;
+  margin-top: 20px;
+}
+
+h2 {
+  color: #343a40;
+}
+
+.basket_a {
+    border: none;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+    width: 200px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.basket_a:hover {
+    background-color: #0069d9;
+    color: white;
+}

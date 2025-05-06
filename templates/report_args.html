@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Отчет {{ report_number }}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <div class="container">
+        <h3>{{ description }}</h3>
+
+        <form method="POST" action="{{ url_for('report.report_selected', num=report_number) }}">
+
+            <div class="form-group">
+                <label for="year">Год:</label><br>
+                <input type="number" id="year" name="year" required min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="month">Месяц:</label><br>
+                <select id="month" name="month" required>
+                    <option value="01">Январь</option>
+                    <option value="02">Февраль</option>
+                    <option value="03">Март</option>
+                    <option value="04">Апрель</option>
+                    <option value="05">Май</option>
+                    <option value="06">Июнь</option>
+                    <option value="07">Июль</option>
+                    <option value="08">Август</option>
+                    <option value="09">Сентябрь</option>
+                    <option value="10">Октябрь</option>
+                    <option value="11">Ноябрь</option>
+                    <option value="12">Декабрь</option>
+                </select>
+            </div>
+
+            <button type="submit" name="action" value="create">Создать</button>
+            <button type="submit" name="action" value="view">Посмотреть</button>
+        </form>
+        <button onclick="location.href={{url_for('report.index')}};">Назад</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Запрос {{ query_number }}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<!-- Доступные поля для ввода: number, month, date -->
+<body>
+    <div class="container">
+        <h3>{{ description }}</h3>
+
+        <form method="POST" action="{{ url_for('query.query_response', num=query_number) }}">
+
+            {% if 'number' in parameters %}
+                {% for field in parameters.number %}
+                    <div class="form-group">
+                        <label for="{{ field[0] }}">{{ field[1] }}: </label><br>
+                        <input type="number" id="{{ field[0] }}" name="{{ field[0] }}" required min="0">
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            {% if 'month' in parameters %}
+                {% for field in parameters.month %}
+                    <div class="form-group">
+                        <label for="{{ field[0] }}">{{ field[1] }}: </label><br>
+                        <select id="{{ field[0] }}" name="{{ field[0] }}" required>
+                            <option value="01">Январь</option>
+                            <option value="02">Февраль</option>
+                            <option value="03">Март</option>
+                            <option value="04">Апрель</option>
+                            <option value="05">Май</option>
+                            <option value="06">Июнь</option>
+                            <option value="07">Июль</option>
+                            <option value="08">Август</option>
+                            <option value="09">Сентябрь</option>
+                            <option value="10">Октябрь</option>
+                            <option value="11">Ноябрь</option>
+                            <option value="12">Декабрь</option>
+                        </select>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            {% if 'date' in parameters %}
+                {% for field in parameters.date %}
+                    <div class="form-group">
+                        <label for="{{ field[0] }}">{{ field[1] }}: </label><br>
+                        <input type="date" id="{{ field[0] }}" name="{{ field[0] }}" required>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <button type="submit">Отправить</button>
+        </form>
+        <button onclick="location.href={{url_for('query.index')}};">Назад</button>
+    </div>
+</body>
+</html>

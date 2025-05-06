@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Сообщение</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <div class="container">
+        <br><br><br>
+        <h1 class="message">Аренда №{{id}} успешно оформлена</h1><br>
+        <a href={{url_for('index')}} class="back-button">Назад</a>
+        <br><br><br><br>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Работа с запросами</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+
+{% macro render_button(query_number, description) %}
+    <div class="query-item">
+        <div class="query-item-content">
+            <h3>Запрос {{query_number}}</h3>
+            <p>{{description}}</p>
+        </div>
+        <a href="{{url_for('query.query_parameters', num=query_number)}}" id="query-link"></a>
+    </div>
+{% endmacro %}
+
+<body>
+
+    <div class="container">
+        <h1>Список доступных запросов</h1>
+        <div class="query-list">
+            {% for query_number, description in queries.items() %}
+                {{render_button(query_number, description)}}
+            {% endfor %}
+        </div>
+        <br>
+        <a href={{url_for('index')}} class="back-button">Назад</a>
+    </div>
+
+</body>
+</html>

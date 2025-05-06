@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главное меню</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+<div class="container">
+    <h1>Главное меню внутренних пользователей</h1>
+
+    <div class="user-info">{{ message }}</div>
+
+    <a href="{{ url_for('logout') }}">Выйти из аккаунта</a>
+    <a href="{{ url_for('query.index') }}">Работа с запросами</a>
+    <a href="{{ url_for('report.index') }}">Работа с отчетами</a>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+<div class="container">
+    <h2>Авторизация</h2>
+
+    <form action="" method="POST">
+        <div class="form-group">
+            <label for="login">Логин:</label><br>
+            <input type="text" id="login" name="login" required><br>
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+        </div>
+        <label>
+            <input type="checkbox" name="is_external"> Я внешний пользователь
+        </label><br><br>
+        {% if wrong_data %}
+            <font color="red" size="2px">Неверный логин и/или пароль</font><br><br>
+        {% endif %}
+        <button type="submit">Отправить</button>
+    </form>
+    <button onclick="window.location.href='{{ url_for('index') }}'">Назад</button>
+</div>
+</body>
+</html>

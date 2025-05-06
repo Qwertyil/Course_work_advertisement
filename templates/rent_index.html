@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Аренда</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <div class="container">
+        <h3>Введите желаемые даты аренды</h3>
+
+        <form method="POST" action="">
+            <div class="form-group">
+                <label for="start">Начало: </label><br>
+                <input type="date" id="start" name="start" required>
+            </div>
+            <div class="form-group">
+                <label for="end">Конец: </label><br>
+                <input type="date" id="end" name="end" required>
+            </div>
+            {% if wrong_data %}
+                <font color="red" size="2px">Некорректные даты</font><br><br>
+            {% endif %}
+            <button type="submit">Отправить</button>
+        </form>
+
+        <button onclick="location.href='/';">Назад</button>
+      </div>
+</body>
+</html>
+

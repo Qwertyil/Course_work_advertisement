@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Работа с отчетами</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+
+{% macro render_button(report_number, description) %}
+    <div class="query-item">
+        <div class="query-item-content">
+            <h3>Отчет {{ report_number }}</h3>
+            <p>{{ description }}</p>
+        </div>
+        <a href="{{url_for('report.report_selected', num=report_number)}}" id="query-link"></a>
+    </div>
+{% endmacro %}
+
+<body>
+
+    <div class="container">
+        <h1>Список запросов</h1>
+        <div class="query-list">
+            {% for report_number, description in reports.items() %}
+                {{render_button(report_number, description)}}
+            {% endfor %}
+        </div>
+        <br>
+        <a href={{url_for('index')}} class="back-button">Назад</a>
+    </div>
+
+</body>
+</html>

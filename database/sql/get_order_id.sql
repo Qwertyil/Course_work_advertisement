@@ -1,0 +1,1 @@
+select max(id_order) from `order` where Date = curdate() and Rentor = ${rentor_id};

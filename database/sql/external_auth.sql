@@ -1,0 +1,1 @@
+SELECT id_rentor, Name FROM rentor WHERE user_login = '${login}' AND user_password = '${password}';
